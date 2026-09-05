@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Template Basics</title>
+</head>
+
+<body>
+    <h1>Template Basics</h1>
+
+    <!-- 1. HTML Comment (Visible in browser source code) -->
+    <!-- This is a 1st comment -->
+
+    <!-- 2. Django Comment (Recommended: Hidden from UI and source code) -->
+    {% comment %}
+    This is a 2nd comment.
+    It can span across multiple lines.
+    {% endcomment %}
+
+    <!-- 3. Single-line Django Comment -->
+    {# This is a 3rd comment #}
+
+    <p>This is a simple template to demonstrate basic HTML structure.</p>
+    <p>Welcome to the blog home page!</p>
+
+    <!-- Single Variables -->
+    <p>Name: {{ name }}</p>
+    <p>Age: {{ age }}</p>
+
+    <!-- List Access -->
+    <p>First Skill: {{ skills.0 }}</p>
+    <p>All Skills: {{ skills }}</p>
+
+    <!-- Object Attributes -->
+    <p>User Name: {{ user.name }}</p>
+    <p>User Age: {{ user.age }}</p>
+
+    <!-- Dictionary / Blog Info -->
+    <h2>Blog Info</h2>
+    <p>Title: {{ blog.title }}</p>
+    <p>Created At: {{ blog.created_at }}</p>
+
+    <!-- Safe Filter (to render HTML tags properly) -->
+    <p>Content without safe: {{ blog.content }}</p>
+    <p>Content with safe: {{ blog.content|safe }}</p>
+
+    <!-- Default Values & Fallbacks -->
+    <p>Default Value: {{ empty_value|default:"No value provided" }}</p>
+
+    <!-- Nested Variables -->
+    <p>Author Name: {{ blog.author.name }}</p>
+</body>
+
+</html>
