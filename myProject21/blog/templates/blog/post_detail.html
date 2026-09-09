@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm p-4">
+    <h1 class="mb-3">{{ object.title }}</h1>
+    <p class="text-muted"><small>Published on {{ object.created_at }}</small></p>
+    <hr>
+    <p class="fs-5">{{ object.body }}</p>
+    <div class="mt-4 d-flex gap-2">
+        <a href="{% url 'post_list' %}" class="btn btn-secondary">Back to List</a>
+        <a href="{% url 'post_update' object.pk %}" class="btn btn-outline-secondary">Edit</a>
+        <a href="{% url 'post_delete' object.pk %}" class="btn btn-outline-danger">Delete</a>
+    </div>
+</div>
+{% endblock %}
